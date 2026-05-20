@@ -12,6 +12,7 @@ func PresetOptions() []model.PresetID {
 		model.PresetFullGentleman,
 		model.PresetEcosystemOnly,
 		model.PresetMinimal,
+		model.PresetCyber,
 		model.PresetCustom,
 	}
 }
@@ -20,6 +21,7 @@ var presetDescriptions = map[model.PresetID]string{
 	model.PresetFullGentleman: "Everything: memory, SDD, skills, docs, persona & security",
 	model.PresetEcosystemOnly: "Core tools only: memory, SDD, skills & docs (no persona/security)",
 	model.PresetMinimal:       "Just Engram persistent memory",
+	model.PresetCyber:         "Cybersecurity Edition: SOC/malware analysis, pentest orchestration, offensive security tools, and Prowler compliance integration. Destructive tools require manual confirmation.",
 	model.PresetCustom:        "Choose components and skills manually; keep existing persona/settings unmanaged",
 }
 

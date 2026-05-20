@@ -79,7 +79,7 @@ func normalizePreset(value string) (model.PresetID, error) {
 	}
 
 	switch model.PresetID(value) {
-	case model.PresetFullGentleman, model.PresetEcosystemOnly, model.PresetMinimal, model.PresetCustom:
+	case model.PresetFullGentleman, model.PresetEcosystemOnly, model.PresetMinimal, model.PresetCustom, model.PresetCyber:
 		return model.PresetID(value), nil
 	default:
 		return "", fmt.Errorf("unsupported preset %q", value)
@@ -115,6 +115,9 @@ func normalizeSkills(values []string) ([]model.SkillID, error) {
 
 	allowed := map[model.SkillID]struct{}{}
 	for _, skill := range catalog.MVPSkills() {
+		allowed[skill.ID] = struct{}{}
+	}
+	for _, skill := range catalog.MVPCyberSkills() {
 		allowed[skill.ID] = struct{}{}
 	}
 
