@@ -85,7 +85,36 @@ const (
 	SkillCognitiveDoc    SkillID = "cognitive-doc-design"
 	SkillCommentWriter   SkillID = "comment-writer"
 	SkillWorkUnitCommits SkillID = "work-unit-commits"
+
+	// Cybersecurity skills (v1)
+	SkillPentestOrchestrator     SkillID = "pentest-orchestrator"
+	SkillAIPentestingValidation  SkillID = "ai-pentesting-validation"
+	SkillExploitChainPatterns    SkillID = "exploit-chain-patterns"
+	SkillWAFDetectionBypass      SkillID = "waf-detection-bypass"
+	SkillDetectionEngineer       SkillID = "detection-engineer"
+	SkillSecurityPythonScripts   SkillID = "python-security"
+	SkillMalwareTriage           SkillID = "malware-triage"
+	SkillSpecializedFileAnalyzer SkillID = "specialized-file-analyzer"
+	SkillMalwareDynamicAnalysis  SkillID = "malware-dynamic-analysis"
+	SkillMalwareReportWriter     SkillID = "malware-report-writer"
 )
+
+// PermissionTier indicates the risk level of an MCP server's tools.
+// Read from manifest.json; not hardcoded in Go.
+type PermissionTier string
+
+const (
+	PermissionTierUnrestricted PermissionTier = "unrestricted" // read-only: shodan, virustotal, context7, engram
+	PermissionTierDestructive  PermissionTier = "destructive"  // kali-mcp tools, metasploit
+	PermissionTierRestricted   PermissionTier = "restricted"   // future: deletes, resets
+)
+
+// ToolPermission maps an MCP server to its permission tier and dangerous tools.
+type ToolPermission struct {
+	MCPServer string
+	Tools     []string
+	Tier      PermissionTier
+}
 
 type PersonaID string
 
@@ -138,6 +167,7 @@ const (
 	PresetEcosystemOnly PresetID = "ecosystem-only"
 	PresetMinimal       PresetID = "minimal"
 	PresetCustom        PresetID = "custom"
+	PresetCyber         PresetID = "cyber"
 )
 
 type SDDModeID string

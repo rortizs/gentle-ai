@@ -1,0 +1,13 @@
+{
+  "name": "shodan-mcp",
+  "type": "npx",
+  "description": "Shodan internet-connected device search via MCP",
+  "config": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-shodan"]
+  },
+  "permission_tier": "unrestricted",
+  "env": {
+    "SHODAN_API_KEY": "<user-configured>"
+  }
+}

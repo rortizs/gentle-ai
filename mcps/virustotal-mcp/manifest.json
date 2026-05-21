@@ -1,0 +1,13 @@
+{
+  "name": "virustotal-mcp",
+  "type": "npx",
+  "description": "VirusTotal file and URL analysis via MCP",
+  "config": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-virustotal"]
+  },
+  "permission_tier": "unrestricted",
+  "env": {
+    "VIRUSTOTAL_API_KEY": "<user-configured>"
+  }
+}

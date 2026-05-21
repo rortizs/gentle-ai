@@ -16,6 +16,9 @@ func TestMVPSkillsCoverAllPresetSkills(t *testing.T) {
 	for _, s := range MVPSkills() {
 		catalogSet[s.ID] = true
 	}
+	for _, s := range MVPCyberSkills() {
+		catalogSet[s.ID] = true
+	}
 
 	presetSkills := skills.AllSkillIDs()
 	for _, id := range presetSkills {
@@ -33,5 +36,31 @@ func TestMVPSkillsNoDuplicates(t *testing.T) {
 			t.Errorf("duplicate skill %q in mvpSkills", s.ID)
 		}
 		seen[s.ID] = true
+	}
+}
+
+// TestMVPCyberSkillsNoDuplicates ensures no cyber skill is listed twice.
+func TestMVPCyberSkillsNoDuplicates(t *testing.T) {
+	seen := make(map[model.SkillID]bool)
+	for _, s := range MVPCyberSkills() {
+		if seen[s.ID] {
+			t.Errorf("duplicate cyber skill %q in MVPCyberSkills", s.ID)
+		}
+		seen[s.ID] = true
+	}
+}
+
+// TestMVPCyberSkillsCategoriesAreValid ensures every cyber skill has a valid category.
+func TestMVPCyberSkillsCategoriesAreValid(t *testing.T) {
+	validCategories := map[string]bool{
+		"red-team":    true,
+		"blue-team":   true,
+		"soc":         true,
+		"compliance":  true,
+	}
+	for _, s := range MVPCyberSkills() {
+		if !validCategories[s.Category] {
+			t.Errorf("cyber skill %q has invalid category %q", s.Name, s.Category)
+		}
 	}
 }

@@ -58,8 +58,39 @@ func TestSkillsForPresetFullIncludesAll(t *testing.T) {
 	skills := SkillsForPreset(model.PresetFullGentleman)
 	all := AllSkillIDs()
 
-	if len(skills) != len(all) {
-		t.Fatalf("full preset skills len = %d, all skills len = %d", len(skills), len(all))
+	// PresetFullGentleman does NOT include cyber skills; AllSkillIDs does.
+	// So we check that full preset skills are a subset of all skills.
+	skillSet := make(map[model.SkillID]struct{}, len(all))
+	for _, s := range all {
+		skillSet[s] = struct{}{}
+	}
+	for _, s := range skills {
+		if _, ok := skillSet[s]; !ok {
+			t.Fatalf("full preset skill %q not in AllSkillIDs", s)
+		}
+	}
+}
+
+func TestSkillsForPresetCyberIncludesAllMVPPlusCyber(t *testing.T) {
+	skills := SkillsForPreset(model.PresetCyber)
+	mvpCount := len(sddSkills) + len(foundationSkills)
+	cyberCount := len(cyberSkills)
+	expected := mvpCount + cyberCount
+
+	if len(skills) != expected {
+		t.Fatalf("cyber preset skills len = %d, expected %d (mvp=%d + cyber=%d)",
+			len(skills), expected, mvpCount, cyberCount)
+	}
+
+	// Verify cyber skills are present.
+	cyberSet := make(map[model.SkillID]struct{})
+	for _, s := range skills {
+		cyberSet[s] = struct{}{}
+	}
+	for _, cs := range cyberSkills {
+		if _, ok := cyberSet[cs]; !ok {
+			t.Fatalf("cyber preset missing cyber skill %q", cs)
+		}
 	}
 }
 

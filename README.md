@@ -11,6 +11,7 @@
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
 <img src="https://img.shields.io/badge/Go-1.24+-00ADD8?logo=go&logoColor=white" alt="Go 1.24+">
 <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey" alt="Platform">
+<a href="docs/cybersecurity-edition.md"><img src="https://img.shields.io/badge/Cybersecurity-Edition-orange" alt="Cybersecurity Edition"></a>
 </p>
 
 </div>
@@ -172,6 +173,17 @@ engram tui                    # Visual memory browser
 
 **Full reference**: [Engram Commands](docs/engram.md)
 
+### Cybersecurity Edition
+
+Gentle AI includes an optional **cybersecurity preset** that adds offensive and defensive security capabilities on top of the standard installation:
+
+- **10 security skills** — Red Team (pentest orchestration, exploit chains, WAF bypass), Blue Team (detection engineering, secure Python), and SOC (malware triage, dynamic analysis, report writing)
+- **3 MCP integrations** — Kali Linux (offensive tools), VirusTotal (threat intel), Shodan (internet-wide scanning)
+- **gentleman-soc agent** — SOC orchestrator that guides incident response through the PICERL pipeline with MITRE ATT&CK mapping
+- **Permission model** — Destructive tools require explicit human confirmation before execution
+
+Select the `cyber` preset during installation or run `gentle-ai --preset cyber`. See the [Cybersecurity Edition](docs/cybersecurity-edition.md) guide for full details.
+
 ---
 
 ## Documentation
@@ -189,6 +201,7 @@ engram tui                    # Visual memory browser
 | [Usage](docs/usage.md)                             | Persona modes, interactive TUI, CLI flags, and dependency management                    |
 | [Backup & Rollback](docs/rollback.md)              | Backup retention, compression, dedup, pinning, and restore                              |
 | [Kiro IDE](docs/kiro.md)                           | Kiro-specific setup, config paths, native subagents, and SDD behavior                   |
+| [Cybersecurity Edition](docs/cybersecurity-edition.md) | Security skills, MCP integrations, SOC agent, and permission model                     |
 | [Platforms](docs/platforms.md)                     | Supported platforms, Windows notes, security verification, config paths                 |
 | [Architecture & Development](docs/architecture.md) | Codebase layout, testing, and relationship to Gentleman.Dots                            |
 
