@@ -1,0 +1,27 @@
+{
+  "name": "kali-mcp",
+  "type": "stdio",
+  "description": "Kali Linux security tools via MCP",
+  "config": {
+    "command": "kali-server-mcp",
+    "args": []
+  },
+  "permission_tier": "destructive",
+  "destructive_tools": [
+    "nmap_scan",
+    "sqlmap_scan",
+    "hydra_attack",
+    "metasploit_run",
+    "nikto_scan",
+    "dirb_scan",
+    "gobuster_scan",
+    "wpscan_analyze",
+    "john_crack",
+    "enum4linux_scan"
+  ],
+  "confirmation_required": true,
+  "env": {
+    "KALI_HOST": "<user-configured>",
+    "KALI_SSH_KEY": "<user-configured>"
+  }
+}
