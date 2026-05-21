@@ -1,7 +1,10 @@
 ---
 name: detection-engineer
-description: Create detection rules and hunting queries from malware analysis findings. Use when you need to write Sigma rules for SIEM, Suricata rules for network IDS, defang IOCs for safe sharing, or convert analysis findings into actionable detection content for SOC teams and threat hunters.
-category: blue-team
+description: "Create detection rules from malware analysis findings. Trigger: writing Sigma/Suricata rules, defanging IOCs, or generating hunting queries for SOC teams."
+license: Apache-2.0
+metadata:
+  author: gentleman-programming
+  version: "1.0"
 ---
 
 # Detection Engineer
@@ -795,3 +798,14 @@ Detection content appears in multiple report sections:
 5. **Export IOCs** in CSV format for SOC import
 6. **Document** all rules with context and testing notes
 7. **Provide** deployment guidance for blue team
+
+## Validation
+
+To verify this skill works correctly:
+
+1. **Load test**: Confirm the skill loads without frontmatter parsing errors.
+2. **Sigma test**: Validate all 4 Sigma rule YAML examples parse correctly with required fields (title, id, logsource, detection, condition, level).
+3. **Suricata test**: Check all 4 Suricata rule examples have valid syntax (action, protocol, direction, sid, rev).
+4. **Defang test**: Verify defanging patterns correctly transform URLs, domains, IPs, and emails.
+5. **Hunting query test**: Confirm Splunk and KQL hunting queries are syntactically valid.
+6. **Integration test**: Confirm referenced skills (malware-report-writer, malware-triage) exist.

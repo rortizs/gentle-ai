@@ -1,7 +1,10 @@
 ---
 name: python-security
-description: Secure Python patterns and best practices for defensive coding. Use when writing Python code for security tools, implementing input validation, handling cryptographic operations, or building secure network applications.
-category: blue-team
+description: "Secure Python patterns for defensive coding. Trigger: writing security tools, implementing input validation, handling crypto, or building secure network apps."
+license: Apache-2.0
+metadata:
+  author: gentleman-programming
+  version: "1.0"
 ---
 
 # Python Security
@@ -313,3 +316,13 @@ pip install scapy impacket paramiko
 - [Python Security Best Practices](https://python.readthedocs.io/en/stable/library/security_warnings.html)
 - [Cryptography Documentation](https://cryptography.io/en/latest/)
 - [Secrets Module](https://docs.python.org/3/library/secrets.html)
+
+## Validation
+
+To verify this skill works correctly:
+
+1. **Load test**: Confirm the skill loads without frontmatter parsing errors.
+2. **Code test**: Execute all Python code examples to verify they run without errors (cryptography, hashlib, ipaddress, html, requests, ssl, socket, tempfile, ast, json modules).
+3. **Security test**: Verify the "NEVER DO THIS" examples are clearly marked as insecure and the "GOOD" alternatives are correct.
+4. **Import test**: Confirm all import statements reference standard or correctly-named third-party libraries.
+5. **Best practices test**: Validate that all code examples follow current Python security recommendations (no eval/exec, parameterized queries, TLS verification).

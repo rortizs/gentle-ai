@@ -1,7 +1,10 @@
 ---
 name: specialized-file-analyzer
-description: Analyze specialized file types beyond standard PE executables - .NET assemblies, Office macros, PDFs, PowerShell scripts, JavaScript, archives, and Linux ELF binaries. Use when you encounter documents, scripts, or non-Windows executables that require format-specific analysis tools and techniques.
-category: soc
+description: "Analyze non-PE file types in malware campaigns. Trigger: analyzing .NET assemblies, Office macros, PDFs, scripts, archives, or Linux ELF binaries."
+license: Apache-2.0
+metadata:
+  author: gentleman-programming
+  version: "1.0"
 ---
 
 # Specialized File Analyzer
@@ -500,3 +503,13 @@ Each file type contributes specific sections to the malware analysis report:
 6. Extract download URLs and IOCs
 7. Document payload delivery method
 8. Prepare findings for report
+
+## Validation
+
+To verify this skill works correctly:
+
+1. **Load test**: Confirm the skill loads without frontmatter parsing errors.
+2. **File type test**: Verify all 8 file type sections (.NET, Office, PDF, Scripts, Archives, LNK, ELF, Batch) have analysis checklists.
+3. **Tool test**: Check that all referenced tools (dnSpy, oledump.py, pdfid.py, pdf-parser.py, olevba, readelf, strace) have correct command examples.
+4. **Checklist test**: Validate each file type's analysis checklist has appropriate items for that format.
+5. **Integration test**: Confirm referenced skills (malware-triage, malware-report-writer) exist.

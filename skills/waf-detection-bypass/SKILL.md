@@ -1,7 +1,10 @@
 ---
 name: waf-detection-bypass
-description: Web Application Firewall detection and bypass techniques for authorized penetration testing. Use when testing web applications protected by WAFs to identify the WAF vendor, select appropriate bypass payloads, and accurately assess the real attack surface behind the WAF layer.
-category: red-team
+description: "Detect and bypass WAFs during authorized testing. Trigger: identifying WAF vendors, selecting bypass payloads, or assessing attack surface behind WAFs."
+license: Apache-2.0
+metadata:
+  author: gentleman-programming
+  version: "1.0"
 ---
 
 # WAF Detection & Bypass
@@ -357,3 +360,13 @@ The following application-level vulnerabilities exist behind the WAF:
 - **exploit-chain-patterns** - WAF bypass is often step 1 in a chain
 - **detection-engineer** - Create WAF rules / Sigma rules for bypass attempts
 - **pentest-orchestrator** - WAF detection is an early phase in orchestrated testing
+
+## Validation
+
+To verify this skill works correctly:
+
+1. **Load test**: Confirm the skill loads without frontmatter parsing errors.
+2. **Signature test**: Verify the WAF signature database table renders correctly with all vendor entries.
+3. **Bypass test**: Check that all 5 bypass category YAML blocks are syntactically valid.
+4. **Strategy test**: Validate the 4-phase WAF-aware testing strategy is complete and sequential.
+5. **Integration test**: Confirm referenced skills (ai-pentesting-validation, exploit-chain-patterns, detection-engineer, pentest-orchestrator) exist.
