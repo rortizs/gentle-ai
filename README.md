@@ -184,6 +184,14 @@ Gentle AI includes an optional **cybersecurity preset** that adds offensive and 
 
 Select the `cyber` preset during installation or run `gentle-ai --preset cyber`. See the [Cybersecurity Edition](docs/cybersecurity-edition.md) guide for full details.
 
+#### Security Skill Taxonomy
+
+| Category | Skills | Role |
+|----------|--------|------|
+| **Red Team** | `pentest-orchestrator`, `ai-pentesting-validation`, `exploit-chain-patterns`, `waf-detection-bypass` | Offensive security assessments |
+| **Blue Team** | `detection-engineer`, `python-security` | Defensive monitoring and scripting |
+| **SOC** | `malware-triage`, `specialized-file-analyzer`, `malware-dynamic-analysis`, `malware-report-writer` | Incident response and malware analysis |
+
 ---
 
 ## Documentation
@@ -225,6 +233,16 @@ This project exists because of the community. See [CONTRIBUTORS.md](CONTRIBUTORS
 <a href="https://github.com/Gentleman-Programming/gentle-ai/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Gentleman-Programming/gentle-ai" />
 </a>
+
+### Cybersecurity Edition Lead
+
+The cybersecurity edition was curated and integrated by:
+
+<a href="https://github.com/rortizs">
+  <img src="https://github.com/rortizs.png" width="100" height="100" style="border-radius: 50%;" alt="rortizs" />
+</a>
+
+**[@rortizs](https://github.com/rortizs)** — Security skills, MCP integrations, and SOC orchestrator
 
 ---
 
